@@ -1,0 +1,28 @@
+{
+  "name": "Behemoth Inventory Distribution",
+  "version": "1.0.0",
+  "description": "Inventory Distribution System",
+  "main": "index.php",
+  "keywords": [
+    "security",
+    "website",
+    "inventory"
+  ],
+  "authors": [
+    "Daniel Gray"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.behemothdan.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+	"jquery-ui": "~1.11.4"
+  }
+}
