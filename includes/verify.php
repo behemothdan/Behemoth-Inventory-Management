@@ -11,16 +11,13 @@
 	$myemail = stripslashes($myemail);
 	$mypassword = stripslashes($mypassword);
 	$encryptedpassword = md5($mypassword);
-	$sql="SELECT * FROM $tbl_name WHERE email='$myemail' and password='$encryptedpassword'";
-	$count = $db->prepare($sql);
-	$count->execute();
-	$count = $count->fetchAll();
+	$count=$db->query("SELECT count(*) FROM $tbl_name WHERE email='$myemail' and password='$encryptedpassword'")->fetchColumn();
 
 	session_start();
 
-	if($count[0][0]==1){
+	if( $count == 1 ){
 		$_SESSION["myemail"] = $myemail;
-		$_SESSION["encryptedpassword"] = $encryptedpassword; 		
+		$_SESSION["encryptedpassword"] = $encryptedpassword;
 		header("location:../dashboard/");
 	}
 	else {
