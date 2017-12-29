@@ -34,8 +34,7 @@
 		
 		if( $_POST['location'] == "" ){
 			$location = NULL;
-		} else {
-			echo $_POST['location'];
+		} else {			
 			$location = $_POST['location'];
 		}
 		
