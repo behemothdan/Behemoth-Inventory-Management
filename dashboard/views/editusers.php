@@ -45,8 +45,8 @@
 					<div class="form-group">
 						<label for="locationinput">Employee Location</label>
 						<select class="form-control" id="locationinput" name="location">
-							<?php echo generateLocationSelectList(); ?>
-						</select>
+							<?php echo generateUserLocationList($edituser->getID()); ?>							
+						</select>																		
 					</div>
 				<?php } ?>
 				<button type="submit" class="btn btn-default">Update User</button>

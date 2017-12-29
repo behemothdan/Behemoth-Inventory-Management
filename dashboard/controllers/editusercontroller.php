@@ -13,9 +13,8 @@
 		$validationmessage = "You do not have permission to edit this page.";		
 		$editingallowed = false;		
 	}
-	
-	
-	if( !empty($_POST)){
+		
+	if( !empty($_POST) ){
 	
 		global $validationmessage;
 		
@@ -36,6 +35,7 @@
 		if( $_POST['location'] == "" ){
 			$location = NULL;
 		} else {
+			echo $_POST['location'];
 			$location = $_POST['location'];
 		}
 		
