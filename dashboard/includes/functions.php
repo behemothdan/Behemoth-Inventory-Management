@@ -1010,15 +1010,40 @@
 			. $location[6] . "</td></tr>";
 		}
 		return $locationtable;
-	}	
+	}
 
 	function generateLocationSelectList() {
-		$locations = getLocations();
+		$locations = getLocations();		
 		
-		foreach($locations as $location) {	
-			$locationoptions = $locationoptions . "<option value='" . $location[0] . "'>" . ucwords($location[1]) . "</option>";	
+		foreach($locations as $location) {		
+			$locationoptions = $locationoptions . "<option value='" . $location[0] . "'>" . ucwords($location[1]) . "</option>";
 		}
 		return $locationoptions;		
+	}
+
+	function generateUserLocationList($userid) {
+		$locations = getLocations();
+		$userlocation = getUserLocation($userid);
+		
+		foreach($locations as $location) {
+			if($location[0] == $userlocation[0]) {
+				$locationoptions = $locationoptions . "<option value='" . $location[0] . "' selected>" . ucwords($location[1]) . "</option>";
+			} else {
+				$locationoptions = $locationoptions . "<option value='" . $location[0] . "'>" . ucwords($location[1]) . "</option>";
+			}
+		}
+		return $locationoptions;		
+	}
+
+	function getUserLocation($userid) {
+		global $db;
+
+		$selectuserlocation = "SELECT `location` FROM `users` WHERE id = " . $userid;
+		$select = $db->prepare($selectuserlocation);
+		$select->execute();
+		$userlocation = $select->fetch();
+
+		return $userlocation;
 	}
 	
 	function generateInventoryItemsDropdown(){

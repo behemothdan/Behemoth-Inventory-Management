@@ -2,7 +2,7 @@
 	$validationmessage = "";
 	$createnewuser = true;
 	
-	if( !empty($_POST)){
+	if( !empty($_POST) ){
 		global $validationmessage;
 
 		// This will return a value greater than 0 if the email or employee ID already exist in the system
